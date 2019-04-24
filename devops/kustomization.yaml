@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# These fields are required
+namePrefix: test-
+nameSuffix: -yourname
+commonLabels: 
+  testing: "true"
+
+# These field are optional
+bases:
+  - base

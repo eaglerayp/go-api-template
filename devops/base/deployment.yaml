@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-api-template
+spec:
+  template:
+    spec:
+      securityContext:
+        runAsUser: 1000
+      containers:
+        - name: go-api-template
+          image: go-api-template:latest
+          ports:
+            - name: api-port
+              containerPort: 8999
+              protocol: TCP
+            - name: profile-api
+              containerPort: 10201
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: api-port
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: api-port
+            periodSeconds: 5

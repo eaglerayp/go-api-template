@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-api-template
+spec:
+  template:
+    spec:
+      containers:
+        - name: go-api-template
+          env:
+            - name: JAEGER_ENABLED
+              value: "true"
+            - name: JAEGER_HOST
+              value: "127.0.0.1:6831"
+            - name: JAEGER_SAMPLE_RATE
+              value: "1"
+            - name: JAEGER_QUEUE_SIZE
+              value: "128"
+            - name: JAEGER_FLUSH_INTERVAL
+              value: "10s"
+            - name: JAEGER_LOG_SPANS
+              value: "false"

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-service-name
+spec:
+  template:
+    spec:
+      containers:
+        - name: jaeger-agent
+          image: "jaegertracing/jaeger-agent:1.11.0"
+          ports:
+          - containerPort: 6831
+            protocol: UDP
+          - containerPort: 6832
+            protocol: UDP
+          env:
+          - name: REPORTER_TYPE
+            value: "tchannel"
+          - name: REPORTER_TCHANNEL_HOST_PORT
+            value: "jaeger-collector:14267"

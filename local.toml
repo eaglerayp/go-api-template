@@ -1,0 +1,40 @@
+[app]
+  namespace = "local"
+
+[http]
+  port = "8999"
+  read_timeout = "40s"
+  write_timeout = "40s"
+  client_timeout = "15s"
+  mode = "debug"
+
+[log]
+  # Discard means not write log to local file
+  # output = "Discard"
+  output = "Stdout"
+  # output = "test.log"
+  level = "debug"
+  timestamp_format = ""
+  access_level = "trace"
+
+[jaeger]
+  enabled = true
+  host = "127.0.0.1:6831"
+  sample_rate = 1
+  queue_size = 128
+  flush_interval = "10s"
+  log_spans = false
+
+[database]
+[database.mgo]
+  name = "Dev"
+  user = "xxxxx"
+  password = "xxxxxx"
+  authdatabase = "xxx"
+  max_conn = 4
+  max_idle = 15
+  timeout = "30s"
+  direct = true
+  secondary = false
+  mongos = false
+  hosts = "127.0.0.1:27017"

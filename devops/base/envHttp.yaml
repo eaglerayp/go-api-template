@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-api-template
+spec:
+  template:
+    spec:
+      containers:
+        - name: go-api-template
+          env:
+            - name: HTTP_PORT
+              value: "8999"
+            - name: HTTP_READ_TIMEOUT
+              value: "40s"
+            - name: HTTP_WRITE_TIMEOUT
+              value: "40s"
+            - name: HTTP_CLIENT_TIMEOUT
+              value: "15s"
+            - name: HTTP_MODE
+              value: "debug"

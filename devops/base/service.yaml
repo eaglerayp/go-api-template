@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-api-template
+spec:
+  ports:
+  - name: api-port
+    port: 8999
+    protocol: TCP
+    targetPort: api-port
+  type: NodePort

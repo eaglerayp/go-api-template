@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-api-template
+spec:
+  template:
+    spec:
+      containers:
+        - name: go-api-template
+          env:
+            - name: DATABASE_MGO_NAME
+              value: "xxxx"
+            - name: DATABASE_MGO_USER
+              value: "xxxx"
+            - name: DATABASE_MGO_PASSWORD
+              value: "@xxxx"
+            - name: DATABASE_MGO_AUTHDATABASE
+              value: "admin"
+            - name: DATABASE_MGO_MAX_CONN
+              value: "4"
+            - name: DATABASE_MGO_MAX_IDLE
+              value: "15"
+            - name: DATABASE_MGO_TIMEOUT
+              value: "30s"
+            - name: DATABASE_MGO_DIRECT
+              value: "true"
+            - name: DATABASE_MGO_SECONDARY
+              value: "false"
+            - name: DATABASE_MGO_MONGOS
+              value: "false"
+            - name: DATABASE_MGO_HOSTS
+              value: "127.0.0.1:27017"
